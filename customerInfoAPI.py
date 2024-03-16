@@ -34,12 +34,13 @@ def makeCustomerInfo():
     return customerInfo
 
 
-def callCustomerInfoAPI(customerinfo):
+def callCustomerInfoAPI():
     df = generalMethods.getTestData()
-    n = 0
-
-    for i in df:
+    n = -1
+    customerInfoObjectList = []
+    for i in df["customerId"]:
         n = n + 1
+        customerinfo = makeCustomerInfo()
         customerinfo.setFapiParams(df, n)
         customerinfo.setFapiHeader(df, n)
         customerinfo.setRestParams(df, n)
@@ -50,5 +51,6 @@ def callCustomerInfoAPI(customerinfo):
                                     headers=customerinfo.getRestHeaders(), params=customerinfo.getRestParams())
         customerinfo.setFapiResponse(fapiResponse.json())
         customerinfo.setRestResponse(restResponse.json())
-    return
+        customerInfoObjectList.append(customerinfo)
+    return customerInfoObjectList
 
