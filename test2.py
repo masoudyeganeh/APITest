@@ -15,10 +15,35 @@ import generalMethods
 # f.close()
 
 
-a = [[10,15,12], [12], [15,45], [45,12]]
-b = [[10,17,12], [13], [15,46], [46,12]]
-dif = []
-for i in range(len(a)):
-    x = list(set(a[i]) - set(b[i]))
-    dif.append(x)
-    print(x)
+import tkinter as tk
+from tkinter import filedialog
+
+def on_submit():
+    pass
+
+app = tk.Tk()
+app.title("تست اتومات سرویس")
+app.geometry("400x300")
+
+label = tk.Label(app, text="Enter your name:")
+label.pack()
+
+entry = tk.Entry(app)
+entry.pack()
+
+submit_button = tk.Button(app, text="Submit", command=on_submit)
+submit_button.pack()
+
+app.mainloop()
+
+def getLocalFile():
+    root=tk.Tk()
+    root.withdraw()
+
+    filePath=filedialog.askopenfilename()
+
+    print('File path：',filePath)
+    return filePath
+
+if __name__ == '__main__':
+    getLocalFile()

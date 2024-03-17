@@ -71,7 +71,7 @@ def getClientToken(u, p):
 
 
 def getTestData():
-    return pd.read_csv("mytestdata.csv")
+    return pd.read_csv(appConf.path)
 
 
 def get_keys(d):
