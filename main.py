@@ -1,10 +1,8 @@
 import customerInfoAPI
 import testCase
 
-customerInfoObjectList = customerInfoAPI.callCustomerInfoAPI()
+customerInfo = customerInfoAPI.makeCustomerInfo()
+customerInfoAPI.callCustomerInfoAPI(customerInfo)
 
-compareKeysTestResult = testCase.compareKeys(customerInfoObjectList)
-
-print(compareKeysTestResult)
-
-
+compareKeysTestResult = testCase.compareKeys(customerInfo)
+compareValuesTestResult = testCase.compareValues(customerInfo)
