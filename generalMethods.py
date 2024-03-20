@@ -56,7 +56,7 @@ class Service:
         self.restResponse = r
 
     def getFapiKeys(self):
-        get_keys(self.getFapiResponse)
+        get_keys(self.getFapiResponse())
 
     def getRestKeys(self):
         get_keys(self.getRestResponse())
