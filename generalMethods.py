@@ -61,6 +61,12 @@ class Service:
     def getRestKeys(self):
         get_keys(self.getRestResponse())
 
+    def getFapiValues(self):
+        get_values(self.getFapiResponse)
+
+    def getRestValues(self):
+        get_values(self.getRestResponse())
+
 
 def getClientToken(u, p):
     authQuery = {"username": str(u), "password": str(p)}
@@ -78,6 +84,15 @@ def get_keys(d):
     if isinstance(d, dict):
         for k, v in d.items():
             yield k
+            yield from list(get_keys(v))
+    elif isinstance(d, list):
+        for o in d:
+            yield from list(get_keys(o))
+
+def get_values(d):
+    if isinstance(d, dict):
+        for k, v in d.items():
+            yield v
             yield from list(get_keys(v))
     elif isinstance(d, list):
         for o in d:

@@ -5,5 +5,6 @@ customerInfo = customerInfoAPI.makeCustomerInfo()
 customerInfoAPI.callCustomerInfoAPI(customerInfo)
 
 compareKeysTestResult = testCase.compareKeys(customerInfo)
+compareValuesTestResult = testCase.compareValues(customerInfo)
 
 
