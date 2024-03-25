@@ -6,4 +6,4 @@ password = "D1@yM25FKg2"
 
 fapiFixToken = "$2a$10$DrC65NU67gpcTIF7ez0U8udv3.kn8Lomm98RYEMy0DGYvxZ0GzW2S"
 dsCode = "90002"
-
+path = "mytestdata.csv"

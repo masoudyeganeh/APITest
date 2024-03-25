@@ -4,6 +4,7 @@ from tkinter.filedialog import askopenfile
 import time
 import pandas as pd
 import applicationConfig as appconf
+import os
 
 ws = Tk()
 ws.title('PythonGuides')
@@ -23,60 +24,42 @@ def uploadFiles():
         length=300,
         mode='determinate'
     )
-    pb1.grid(row=4, columnspan=3, pady=20)
+    pb1.grid(row=4, columnspan=4, pady=20)
     for i in range(5):
         ws.update_idletasks()
         pb1['value'] += 20
         time.sleep(1)
+    import main
+    main.customerInfoObjectList
+    main.compareKeysTestResult
     pb1.destroy()
-    Label(ws, text='File Uploaded Successfully!', foreground='green').grid(row=4, columnspan=3, pady=10)
+    Label(ws, text='File Uploaded Successfully!', foreground='green').grid(row=5, columnspan=3, pady=10)
 
-
+def open():
+    path = 'C:/Users/m.yeganeh/PycharmProjects/APITest/out.xlsx'
+    os.startfile(path, 'open')
 
 adhar = Label(
     ws,
-    text='سناریو تست به فرمت csv:  '
+    text='سناریو تست را انتخاب کنید:  '
 )
-adhar.grid(row=0, column=0, padx=10)
+adhar.grid(row=0, columnspan=1, padx=10)
 
 adharbtn = Button(
     ws,
-    text='Choose File',
+    text='انتخاب',
     command=lambda: open_file()
 )
 adharbtn.grid(row=0, column=1)
 
-# dl = Label(
-#     ws,
-#     text='Upload Driving License in jpg format '
-# )
-# dl.grid(row=1, column=0, padx=10)
-
-# dlbtn = Button(
-#     ws,
-#     text='Choose File ',
-#     command=lambda: open_file()
-# )
-# dlbtn.grid(row=1, column=1)
-
-# ms = Label(
-#     ws,
-#     text='Upload Marksheet in jpg format '
-# )
-# ms.grid(row=2, column=0, padx=10)
-
-# msbtn = Button(
-#     ws,
-#     text='Choose File',
-#     command=lambda: open_file()
-# )
-# msbtn.grid(row=2, column=1)
-
 upld = Button(
     ws,
-    text='Upload Files',
+    text='تست',
     command=uploadFiles
 )
-upld.grid(row=3, columnspan=3, pady=10)
+upld.grid(row=1, column=1, pady=10)
+
+openbtn = Button(ws, text="مشاهده نتیجه تست", command=open)
+openbtn.grid(row=3, column=1, pady=10)
 
 ws.mainloop()
