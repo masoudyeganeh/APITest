@@ -25,13 +25,13 @@ def uploadFiles():
         mode='determinate'
     )
     pb1.grid(row=4, columnspan=4, pady=20)
+    import main
+    main.customerOrdersObjectList
+    main.customerOrdersCompareKeysTestResult
     for i in range(5):
         ws.update_idletasks()
         pb1['value'] += 20
         time.sleep(1)
-    import main
-    main.customerOrdersObjectList
-    main.customerOrdersCompareKeysTestResult
     pb1.destroy()
     Label(ws, text='File Uploaded Successfully!', foreground='green').grid(row=5, columnspan=3, pady=10)
 
