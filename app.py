@@ -30,8 +30,8 @@ def uploadFiles():
         pb1['value'] += 20
         time.sleep(1)
     import main
-    main.customerInfoObjectList
-    main.compareKeysTestResult
+    main.customerOrdersObjectList
+    main.customerOrdersCompareKeysTestResult
     pb1.destroy()
     Label(ws, text='File Uploaded Successfully!', foreground='green').grid(row=5, columnspan=3, pady=10)
 

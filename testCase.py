@@ -18,7 +18,7 @@ def compareKeys(objectList):
             resultList.append("OK")
             customerId.append(objectList[i].restParams["customerId"])
         else:
-            x = list(set(fapiKeys[i]) - set(restKeys[i]))
+            x = list(set(fapiKeys[i]) - set(restKeys[i])) + list(set(restKeys[i]) - set(fapiKeys[i]))
             resultList.append(x)
             customerId.append(objectList[i].restParams["customerId"])
     # result = pd.DataFrame({'customerId': {0: [customerId]}, 'keysdiff': {0: [resultList]}})
