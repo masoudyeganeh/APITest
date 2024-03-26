@@ -18,25 +18,26 @@ def open_file():
 
 
 def uploadFiles():
-    pb1 = Progressbar(
-        ws,
-        orient=HORIZONTAL,
-        length=300,
-        mode='determinate'
-    )
-    pb1.grid(row=4, columnspan=4, pady=20)
-    import main
-    main.customerOrdersObjectList
-    main.customerOrdersCompareKeysTestResult
-    for i in range(5):
-        ws.update_idletasks()
-        pb1['value'] += 20
-        time.sleep(1)
-    pb1.destroy()
-    Label(ws, text='File Uploaded Successfully!', foreground='green').grid(row=5, columnspan=3, pady=10)
+    # pb1 = Progressbar(
+    #     ws,
+    #     orient=HORIZONTAL,
+    #     length=300,
+    #     mode='determinate'
+    # )
+    # pb1.grid(row=4, columnspan=4, pady=20)
+    from API import customerOrdersAPI
+    import testCase
+    customerOrdersObjectList = customerOrdersAPI.callcustomerOrdersAPI()
+    customerOrdersCompareKeysTestResult = testCase.compareKeys(customerOrdersObjectList)
+    # for i in range(5):
+    #     ws.update_idletasks()
+    #     pb1['value'] += 20
+    #     time.sleep(1)
+    # pb1.destroy()
+    Label(ws, text='File Uploaded Successfully!', foreground='green').grid(row=5, column=1, pady=10)
 
 def open():
-    path = 'C:/Users/m.yeganeh/PycharmProjects/APITest/out.xlsx'
+    path = 'C:/Users/m.yeganeh/PycharmProjects/APITest/compareKeys.xlsx'
     os.startfile(path, 'open')
 
 adhar = Label(
