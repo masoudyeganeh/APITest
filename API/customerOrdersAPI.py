@@ -7,8 +7,8 @@ class CustomerOrders(generalMethods.Service):
     def __init__(self):
         super().__init__()
         self.name = "customerOrders"
-        self.fapiUrl = "customers/customerOrders"
-        self.restUrl = "customers/customerOrders"
+        self.fapiUrl = "customers/orders"
+        self.restUrl = "customers/orders"
         self.fapiHeader = ""
         self.restHeader = ""
         self.fapiParams = ""
@@ -18,8 +18,7 @@ class CustomerOrders(generalMethods.Service):
         self.restResponse = ""
 
     def setFapiParams(self, df, n):
-        self.fapiParams = {"nationalCode": str(df["nationalCode"][n]),
-                           "isPortfo": "0", "prxCode": "", "lang": "fa"}
+        self.fapiParams = {}
 
     def setFapiHeader(self, df, n):
         self.fapiHeader = {"x-fixed-token": appConf.fapiFixToken,

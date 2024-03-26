@@ -16,6 +16,7 @@ def compareKeys(objectList):
         restKeys.append(list(dict.fromkeys(list(objectList[i].restResponse))))
         if set(fapiKeys[i]) == set(restKeys[i]):
             resultList.append("OK")
+            customerId.append(objectList[i].restParams["customerId"])
         else:
             x = list(set(fapiKeys[i]) - set(restKeys[i]))
             resultList.append(x)
