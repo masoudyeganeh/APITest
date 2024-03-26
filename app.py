@@ -7,7 +7,7 @@ import applicationConfig as appconf
 import os
 
 ws = Tk()
-ws.title('PythonGuides')
+ws.title('K.T.Y')
 ws.geometry('400x200')
 
 
