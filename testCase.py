@@ -12,8 +12,11 @@ def compareKeys(objectList):
     fapiKeys = []
     restKeys = []
     for i in range(len(objectList)):
-        fapiKeys.append(list(dict.fromkeys(list(objectList[i].fapiResponse))))
-        restKeys.append(list(dict.fromkeys(list(objectList[i].restResponse))))
+        a = list(generalMethods.get_keys(objectList[i].fapiResponse))
+        fapiKeys.append(list(generalMethods.get_keys(objectList[i].fapiResponse)))
+        restKeys.append(list(generalMethods.get_keys(objectList[i].restResponse)))
+        # fapiKeys.append(list(dict.fromkeys(list(objectList[i].fapiResponse))))
+        # restKeys.append(list(dict.fromkeys(list(objectList[i].restResponse))))
         if set(fapiKeys[i]) == set(restKeys[i]):
             resultList.append("OK")
             customerId.append(objectList[i].restParams["customerId"])
