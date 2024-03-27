@@ -9,16 +9,17 @@ def get_keys(d):
         for o in d:
             yield from list(get_keys(o))
 
-def get_keys1(d):
+def get_values(d):
     if isinstance(d, dict):
         for k, v in d.items():
-            yield k
-            yield from list(get_keys(v))
+            yield v
+            yield from list(get_values(v))
     elif isinstance(d, list):
         for o in d:
-            yield from list(get_keys(o))
+            yield from list(get_values(o))
 
+v = list(get_values(a))
+k = list(get_keys(a))
 
-# print(list(get_keys1(a)))
-
-print(list(get_keys(a)))
+print(v[2])
+print(k[2])
